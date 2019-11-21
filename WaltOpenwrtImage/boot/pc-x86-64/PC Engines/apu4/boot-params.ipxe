@@ -1,0 +1,10 @@
+#!ipxe
+
+# $ifname is set by iPXE: it is the interface on which iPXE successfully
+# got an IP address through DHCP.  Use this to compute the interface to
+# pass to netconsole.
+iseq ${ifname} net0 && set netconsole_iface enp1s0 ||
+iseq ${ifname} net1 && set netconsole_iface enp2s0 ||
+iseq ${ifname} net2 && set netconsole_iface enp3s0 ||
+
+set additional_kernel_params console=ttyS0,115200

@@ -1,0 +1,7 @@
+#!ipxe
+
+# Server mac address is useful for netconsole setup on nodes.
+# This file is defined as a template in /etc/walt/image.spec,
+# thus the following value will be automatically updated
+# by the server before the image is made accessible to nodes.
+set server_mac %(server_mac)s
