@@ -1,7 +1,7 @@
 
-IMAGE_NAME ?= paulgrangette/pc-x86-64-default
-ALIAS1 = paulgrangette/pc-x86-64-client:latest
-ALIAS2 = paulgrangette/pc-x86-64-client:stretch
+IMAGE_NAME ?= rgrunbla/pc-x86-64-default
+ALIAS1 = rgrunbla/pc-x86-64-client:latest
+ALIAS2 = rgrunbla/pc-x86-64-client:stretch
 
 build:
 	docker build --pull=true --tag=$(IMAGE_NAME) .
