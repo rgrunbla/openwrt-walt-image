@@ -28,7 +28,7 @@ RUN sed -i -e 's#^root:[^:]*:#root::#' /etc/shadow
 RUN opkg update
 
 # findmnt
-RUN opkg install mount-utils socat ath10k-firmware-qca988x
+RUN opkg install mount-utils socat ath10k-firmware-qca988x pciutils usbutils
 
 # Prevent default hooks to mess with the network and result in a loss of the
 # connection to the NFS server (rootfs)
