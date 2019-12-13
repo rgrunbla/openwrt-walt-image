@@ -27,5 +27,16 @@ COPY --chown=user config /home/user/openwrt/.config
 RUN cd /home/user/openwrt && \
     make defconfig
 
-RUN cd /home/user/openwrt && \
-    make -j8
+# cd openwrt
+# make menuconfig
+# make kernel_menuconfig
+
+# General Setup -> Kernel .config support -> Enable access to .config through /proc/config.gz
+# Networking Support -> Networking Options -> IP: kernel level autoconfiguration -> IP: DHCP support
+# Device Drivers -> Generic Driver Options -> Maintain a devtmpfs filesystem to mount at /dev
+# Device Drivers -> Network device support -> Wireless LAN -> Atheros/Qualcomm devices / Atheros wireless debugging 
+# Device Drivers -> Network device support -> Ethernet driver support -> Intel support -> Intel gigabit
+# File Systems -> Network File Systems -> NFS client support (version 2, version 3) / Root file system on NFS
+# Save
+
+# make -j8

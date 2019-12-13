@@ -16,5 +16,5 @@ echo "Unmounting the .iso file"
 sudo umount /mnt/
 
 echo "Moving the initramfs and kernel in place"
-cp $INITRAMFS_PATH $OUTPUT_DIRECTORY/vmlinuz
+#cp $INITRAMFS_PATH $OUTPUT_DIRECTORY/vmlinuz
 cp $KERNEL_PATH $OUTPUT_DIRECTORY/initrd.img

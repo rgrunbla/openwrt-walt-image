@@ -7,13 +7,11 @@ LABEL walt.node.models=pc-x86-64
 ENTRYPOINT ["/bin/ash"]
 
 ADD ./openwrt.tar.gz /
+
+RUN ls /
+
 RUN mkdir /var/lock/
 
-# Install packages
-# step B.5 for busybox
-# step B.6 for openssh
-
-# Install custom ipxe boot scripts
 # step B.2 for ipxe
 COPY boot/ /boot
 
@@ -21,14 +19,24 @@ COPY boot/ /boot
 COPY image.spec /etc/walt/
 
 # Copy kernel
-COPY vmlinuz /
-
-# Copy initramfs
-COPY initrd.img /
-
+RUN cp /boot/vmlinuz /
 
 # Allow passwordless root login on the serial console
 RUN sed -i -e 's#^root:[^:]*:#root::#' /etc/shadow
 
 # Update
 RUN opkg update
+
+# findmnt
+RUN opkg install mount-utils socat ath10k-firmware-qca988x
+
+# Prevent default hooks to mess with the network and result in a loss of the
+# connection to the NFS server (rootfs)
+COPY 80_mount_root /lib/preinit/80_mount_root
+COPY 10_indicate_preinit /lib/preinit/10_indicate_preinit
+
+# Enable SSHD
+COPY dropbear /etc/config/dropbear
+
+# Prevent the default network config to mess with eth0
+COPY network /etc/config/network
