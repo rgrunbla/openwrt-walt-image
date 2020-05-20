@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-ISO_PATH="./ImageBuilder/generic/openwrt-x86-generic.iso"
+ISO_PATH="./ImageBuilder/generic/openwrt-x86-generic-generic-image.iso"
 INITRAMFS_PATH="./ImageBuilder/generic/openwrt-x86-generic-ramfs.bzImage"
-KERNEL_PATH="./ImageBuilder/generic/openwrt-x86-generic-vmlinuz"
+KERNEL_PATH="./ImageBuilder/generic/openwrt-x86-generic-generic-kernel.bin"
 OUTPUT_DIRECTORY="./WaltOpenwrtImage/"
 OUTPUT_FILENAME="$OUTPUT_DIRECTORY/openwrt.tar.gz"
 

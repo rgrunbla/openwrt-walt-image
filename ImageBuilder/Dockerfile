@@ -30,14 +30,13 @@ RUN cd /home/user/openwrt && \
 # cd openwrt
 # make menuconfig
 
-## -> Subtarget / x86_64
 # -> Target Images / Build LiveCD image (ISO)
 
 # make kernel_menuconfig
 
 # General Setup -> Kernel .config support -> Enable access to .config through /proc/config.gz
 # Networking Support -> Networking Options -> IP: kernel level autoconfiguration -> IP: DHCP support
-# Device Drivers -> Generic Driver Options -> Maintain a devtmpfs filesystem to mount at /dev
+# Device Drivers -> Generic Driver Options -> Maintain a devtmpfs filesystem to mount at /dev + Automount
 # Device Drivers -> Network device support -> Ethernet driver support -> Intel support -> Intel gigabit
 # Device Drivers -> Network device support -> Wireless LAN -> Atheros/Qualcomm devices / Atheros wireless debugging 
 
